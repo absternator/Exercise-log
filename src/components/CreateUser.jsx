@@ -17,6 +17,7 @@ function CreateUser() {
     // axios to send to backend endpoint - needs JSON object
     axios.post("http://localhost:5000/users/add",user)
     .then(res => console.log(res.data));
+    window.location = "/create"
     // reset
     setUser({ username: "" });
   }

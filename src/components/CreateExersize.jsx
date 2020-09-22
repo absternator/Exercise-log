@@ -13,6 +13,7 @@ function CreateExersize() {
   });
   //   side Effect, on [] change, thus only on mount
   useEffect(() => {
+    // show user drop down list of users added
     axios.get("http://localhost:5000/users")
     .then(res => {
       if(res.data.length > 0) {
@@ -20,7 +21,7 @@ function CreateExersize() {
           return {
             ...prevState,
             users: res.data.map(user => {return user.username}),
-            username: res.data[0].username
+            username: res.data[res.data.length -1 ].username
           }
 
         });

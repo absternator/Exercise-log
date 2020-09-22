@@ -14,16 +14,9 @@ function Exersize(props) {
           <button className="btn btn-outline-primary btn-sm">edit</button>
         </Link>{" "}
         |{" "}
-        <a
-          href="#"
-          className="btn btn-danger btn-sm"
-          role = "button"
-          onClick={() => {
+        <button className="btn btn-danger btn-sm" onClick={() => {
             props.deleteExersize(props.exersize._id);
-          }}
-        >
-          delete
-        </a>
+          }} >delete </button>
       </td>
     </tr>
   );
@@ -35,13 +28,14 @@ function ExersizeList() {
     axios
       .get("http://localhost:5000/exersizes/")
       .then((res) => {
+        console.log(res.data);
         setExersizeList(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
       return () => {
-        console.log("clean up");
+        console.log("clean on Exersize List")
       }
      
   }, []);
@@ -72,11 +66,11 @@ function ExersizeList() {
     <div>
       <h3>Logged Exercises</h3>
       <table className="table">
-        <thead className="thead-light">
+        <thead className="thead-light head">
           <tr>
             <th>Username</th>
             <th>Description</th>
-            <th>Duration</th>
+            <th>Duration(minutes)</th>
             <th>Date</th>
             <th>Actions</th>
           </tr>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
 // import components
 import Navbar from "./components/Navbar";
@@ -13,7 +14,6 @@ import CreateUser from "./components/CreateUser";
 function App() {
   return (
     <Router>
-      <br />
       <Navbar />
       <Route path="/" exact component={ExersizeList} />
       <Route path="/edit/:id" component={EditExersize} />

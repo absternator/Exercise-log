@@ -26,6 +26,11 @@ function EditExersize(props) {
           };
         });
       });
+      return () => {
+        console.log( props.match.params.id);
+      }
+  }, [props.match.params.id]);
+  useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
       if (res.data.length > 0) {
         setExersize((prevState) => {
@@ -71,9 +76,12 @@ function EditExersize(props) {
     console.log(exersize);
     // axios to send to backend endpoint - needs JSON object
     axios
-      .patch("http://localhost:5000/exersizes/update/" + props.match.params.id, exersize)
+      .patch(
+        "http://localhost:5000/exersizes/update/" + props.match.params.id,
+        exersize
+      )
       .then((res) => console.log(res.data));
-      window.location = "/";
+    window.location = "/";
   }
   function onChangeUsername(event) {
     const value = event.target.value;
